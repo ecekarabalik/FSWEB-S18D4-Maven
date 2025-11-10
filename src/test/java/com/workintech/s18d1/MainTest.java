@@ -25,6 +25,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
+
 @ExtendWith(ResultAnalyzer2.class)
 class MainTest {
 
@@ -111,7 +112,7 @@ class MainTest {
     @Test
     void testFindById_NotExists() {
         when(entityManager.find(Burger.class, 999L)).thenReturn(null);
-        assertThrows(BurgerException.class, () -> burgerDao.findById(999L));
+        assertThrows(BurgerException.class, () -> burgerDao.findById((int) 999));
     }
 
     @Test
